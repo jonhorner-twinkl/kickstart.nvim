@@ -96,7 +96,7 @@ vim.g.have_nerd_font = true
 -- [[ Setting options ]]
 -- See `:help vim.opt`
 -- NOTE: You can change these options as you wish!
---  For more options, you can see `:help option-list` 
+--  For more options, you can see `:help option-list`
 
 -- Make line numbers default
 vim.opt.number = true
@@ -775,8 +775,32 @@ require('lazy').setup({
   },
 
   -- Highlight todo, notes, etc in comments
-  { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
-
+  {
+    'folke/todo-comments.nvim',
+    event = 'VimEnter',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+    },
+    opts = {
+      signs = false,
+    },
+  },
+  -- Noice
+  {
+    'folke/noice.nvim',
+    event = 'VeryLazy',
+    opts = {
+      -- add any options here
+    },
+    dependencies = {
+      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+      'MunifTanjim/nui.nvim',
+      -- OPTIONAL:
+      --   `nvim-notify` is only needed, if you want to use the notification view.
+      --   If not available, we use `mini` as the fallback
+      'rcarriga/nvim-notify',
+    },
+  },
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
     config = function()
